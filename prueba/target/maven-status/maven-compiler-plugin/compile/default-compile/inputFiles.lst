@@ -1,4 +1,5 @@
 /home/backend/backend_final/backend_final/prueba/src/main/java/py/com/progweb/prueba/model/Persona.java
 /home/backend/backend_final/backend_final/prueba/src/main/java/py/com/progweb/prueba/ejb/PersonaDAO.java
 /home/backend/backend_final/backend_final/prueba/src/main/java/py/com/progweb/prueba/rest/ApplicationConfig.java
+/home/backend/backend_final/backend_final/prueba/src/main/java/py/com/progweb/prueba/model/Paciente.java
 /home/backend/backend_final/backend_final/prueba/src/main/java/py/com/progweb/prueba/rest/PersonaRest.java
