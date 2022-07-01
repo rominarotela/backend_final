@@ -39,6 +39,10 @@ public class Paciente {
         return idPaciente;
     }
 
+    public Integer getIdPacienteId(Integer id) {
+        return idPaciente;
+    }
+
     public void setIdPaciente(Integer idPaciente) {
         this.idPaciente = idPaciente;
     }

@@ -2,6 +2,7 @@ package py.com.progweb.prueba.rest;
 
 import py.com.progweb.prueba.ejb.PacienteDAO;
 import py.com.progweb.prueba.model.Paciente;
+import py.com.progweb.prueba.model.Persona;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -27,4 +28,13 @@ public class PacienteRest {
         this.pacienteDAO.agregar(p);
         return Response.ok().build();
     }
+
+    @DELETE
+    @Path("/{id_paciente}")
+    public Response eliminar(@PathParam("id_paciente") Integer id_paciente)
+    {
+        this.pacienteDAO.eliminar(id_paciente);
+        return Response.ok().build();
+    }
+
 }
