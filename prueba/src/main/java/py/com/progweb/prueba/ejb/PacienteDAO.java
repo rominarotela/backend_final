@@ -3,11 +3,10 @@ package py.com.progweb.prueba.ejb;
 import py.com.progweb.prueba.model.Paciente;
 
 import javax.ejb.Stateless;
-import javax.enterprise.context.NonexistentConversationException;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Stateless
@@ -15,20 +14,28 @@ public class PacienteDAO {
     @PersistenceContext(unitName = "pruebaPU")
     private EntityManager em;
 
-    public void agregar(Paciente entidad) {
-        this.em.persist(entidad);
+    public Paciente get(Integer id) {
+        return em.find(Paciente.class, id);
     }
 
-    public void eliminar(Integer id) {
-        Paciente paciente = em.getReference(Paciente.class, id);
-        paciente.getIdPacienteId(id);
-        em.getTransaction().begin();
-        em.remove(paciente);
-        em.getTransaction().commit();
+    public List<Paciente> getAll() {
+        TypedQuery<Paciente> tq = em.createQuery("SELECT e FROM Paciente e", Paciente.class);
+        return tq.getResultList();
     }
 
-    public List<Paciente> lista() {
-        Query q=this.em.createQuery("select p from Paciente p");
-        return (List<Paciente>) q.getResultList();
+    @Transactional
+    public void save(Paciente entidad) {
+        em.persist(entidad);
     }
+
+    @Transactional
+    public void update(Paciente paciente) {
+        em.merge(paciente);
+    }
+
+    @Transactional
+    public void delete(Paciente paciente) {
+        em.remove(em.contains(paciente) ? paciente : em.merge(paciente));
+    }
+
 }

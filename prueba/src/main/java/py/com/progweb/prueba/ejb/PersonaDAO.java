@@ -5,7 +5,7 @@ import py.com.progweb.prueba.model.Persona;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
@@ -18,7 +18,7 @@ public class PersonaDAO {
     }
 
     public List<Persona> lista() {
-        Query q=this.em.createQuery("select p from Persona p");
-        return (List<Persona>) q.getResultList();
+        TypedQuery<Persona> q = this.em.createQuery("select p from Persona p", Persona.class);
+        return q.getResultList();
     }
 }

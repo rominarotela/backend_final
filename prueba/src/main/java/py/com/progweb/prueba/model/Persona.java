@@ -3,7 +3,7 @@ package py.com.progweb.prueba.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="persona")
+@Table(name = "persona")
 public class Persona {
 
     @Id
@@ -18,7 +18,8 @@ public class Persona {
     @Column(name = "apellido", length = 50)
     @Basic(optional = false)
     private String apellido;
-    public Persona(){
+
+    public Persona() {
 
     }
 

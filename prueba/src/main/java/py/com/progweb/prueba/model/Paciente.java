@@ -3,7 +3,7 @@ package py.com.progweb.prueba.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="paciente")
+@Table(name = "paciente")
 public class Paciente {
 
     @Id
@@ -31,7 +31,7 @@ public class Paciente {
     @Basic(optional = false)
     private String nacimiento;
 
-    public Paciente(){
+    public Paciente() {
 
     }
 
@@ -39,12 +39,12 @@ public class Paciente {
         return idPaciente;
     }
 
-    public Integer getIdPacienteId(Integer id) {
-        return idPaciente;
-    }
-
     public void setIdPaciente(Integer idPaciente) {
         this.idPaciente = idPaciente;
+    }
+
+    public Integer getIdPacienteId(Integer id) {
+        return idPaciente;
     }
 
     public String getNombre() {
@@ -93,6 +93,15 @@ public class Paciente {
 
     public void setNacimiento(String nacimiento) {
         this.nacimiento = nacimiento;
+    }
+
+    public void update(Paciente p) {
+        nombre = p.getNombre() != null ? p.getNombre() : null;
+        apellido = p.getApellido() != null ? p.getApellido() : null;
+        cedula = p.getCedula() != null ? p.getCedula() : null;
+        email = p.getEmail() != null ? p.getEmail() : null;
+        telefono = p.getTelefono() != null ? p.getTelefono() : null;
+        nacimiento = p.getNacimiento() != null ? p.getNacimiento() : null;
     }
 }
 
