@@ -26,10 +26,29 @@ public class Ficha {
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
+    @Column(name = "detalle", length = 150)
+    @Basic(optional = false)
+    private String detalle;
 
     public Ficha() {
 
     }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
+    }
+
+    public Ficha (Date fecha, Medico medico, Paciente paciente, String detalle) {
+        this.fecha = fecha;
+        this.medico = medico;
+        this.paciente = paciente;
+        this.detalle = detalle;
+    }
+
 
     public Integer getIdFicha() {
         return idFicha;
