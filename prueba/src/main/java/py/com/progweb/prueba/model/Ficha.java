@@ -34,6 +34,12 @@ public class Ficha {
 
     }
 
+    public Ficha (Date fecha, Medico medico, Paciente paciente, String detalle) {
+        this.fecha = fecha;
+        this.medico = medico;
+        this.paciente = paciente;
+        this.detalle = detalle;
+    }
     public String getDetalle() {
         return detalle;
     }
@@ -41,14 +47,6 @@ public class Ficha {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
-
-    public Ficha (Date fecha, Medico medico, Paciente paciente, String detalle) {
-        this.fecha = fecha;
-        this.medico = medico;
-        this.paciente = paciente;
-        this.detalle = detalle;
-    }
-
 
     public Integer getIdFicha() {
         return idFicha;
@@ -86,6 +84,7 @@ public class Ficha {
         fecha = f.getFecha() != null ? f.getFecha() : null;
         medico = f.getMedico() != null ? f.getMedico() : null;
         paciente = f.getPaciente() != null ? f.getPaciente() : null;
+        detalle = f.getDetalle() != null ? f.getDetalle() : null;
     }
 
 }
