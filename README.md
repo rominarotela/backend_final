@@ -1,4 +1,4 @@
-# Observaciones
+# Sistema Médico - Observaciones
 1) Tecnología: JEE
 2) Para la implementación puede utilizar el IDE de su elección (Eclipse, Netbeans, IntelliJ IDEA).
 3) Como servidor de aplicación deben utilizar Wildfly (versión elección).
